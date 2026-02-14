@@ -1,42 +1,209 @@
-    body{
-        background: linear-gradient(to right, #00ffff, #006eff);
-        font-family: Arial, Helvetica, sans-serif;
-        max-width: 1400px;
-        margin: 2%;
-    }
-    h1{
-        background-color: rgb(0, 0, 0);
-        color: rgb(255, 255, 255);
-    }
-    h2{
-        color: rgb(0, 0, 0);
-    }
-    h3{
-        color: hsl(0, 0%, 0%);
-    }
-    img{
-        color:rgb(0, 0, 0)
-    }
-    strong{
-        color: rgb(255, 0, 0);
-    }
-    ul{
-        color: rgb(0, 0, 0);
-    }
-    ol{
-        color:rgb(0, 0, 0)
-    }
-    table{
-        background-color: rgb(0, 0, 0);
-        border-color: rgb(9, 255, 0)
-    }
-    tr{
-        border-color: rgb(255, 0, 0);
-        color: rgb(255, 255, 255);
-    }
-    th{
-        color: rgb(255, 255, 255);
-    }
-    td{
-        color: rgb(255, 255, 255);
-    }
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =====================
+   VARIÁVEIS DE TEMA
+===================== */
+:root {
+  --bg: #ffffff;
+  --card: #000000;
+  --text: #e5e7eb;
+  --accent: #ffffff;
+}
+
+:root.light {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #000000;
+  --accent: #000000;
+}
+
+/* BODY */
+body {
+  font-family: system-ui, sans-serif;
+  background: radial-gradient(circle at top, var(--bg), #000);
+  color: var(--text);
+  min-height: 100vh;
+  transition: background 0.5s, color 0.5s;
+}
+
+/* LOADING */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  color: cyan;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  z-index: 9999;
+}
+
+/* PROGRESS BAR */
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0;
+  background: var(--accent);
+  z-index: 999;
+}
+
+/* BOTÃO DE TEMA */
+#themeToggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border: none;
+  border-radius: 50%;
+  padding: 12px;
+  font-size: 18px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  z-index: 999;
+}
+
+/* HEADER */
+header {
+  position: sticky;
+  top: 0;
+  padding: 20px;
+  z-index: 10;
+}
+
+.glass {
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* MAIN */
+main {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+.card {
+  background: var(--card);
+  padding: 30px;
+  margin-bottom: 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+h2 {
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* CONSOLE CARDS */
+.console-card {
+  background: var(--card);
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.console-card:hover {
+  transform: rotateY(12deg) rotateX(6deg) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* SVG ICONS */
+.icon {
+  width: 48px;
+  height: 48px;
+  fill: var(--accent);
+  margin-bottom: 10px;
+  transition: transform 0.4s;
+}
+
+.console-card:hover .icon {
+  transform: rotate(360deg) scale(1.2);
+}
+
+.icon.line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+
+.console-card:hover .icon.line {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: draw 0.6s forwards;
+}
+
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* TIPOS */
+.tipos-lista {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.tipos-lista li {
+  background: var(--card);
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: none;
+}
+
+/* FOOTER */
+footer {
+  background: var(--card);
+  text-align: center;
+  padding: 20px;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+  }
+}
