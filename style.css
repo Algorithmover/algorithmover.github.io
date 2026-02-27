@@ -237,10 +237,13 @@ p {
 }
 
 #quiz-container {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centraliza a pergunta e a div de opções */
+  width: 100%;
+  max-width: 600px; /* Limita a largura para não pegar a lateral toda */
+  margin: 0 auto;   /* Centraliza o container na tela */
+  padding: 20px;
+  background: var(--card); /* Usa a cor de card que você já definiu */
+  border-radius: 15px;
+  border: 1px solid rgba(139, 92, 246, 0.3);
 }
 
 .opcoes {
@@ -331,4 +334,73 @@ button:focus {
   animation: shake 0.4s ease-in-out;
   background: #dc2626;
   color: #fff;
+}
+/* No final do seu style.css */
+.ranking-card {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 25px auto;
+    padding: 20px;
+    background: rgba(139, 92, 246, 0.1);
+    border: 2px solid var(--accent);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+    text-align: center;
+}
+
+.rank-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    margin: 8px 0;
+    background: var(--card);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent);
+    color: var(--text);
+}
+
+.rank-item strong {
+    color: var(--accent);
+}
+/* style.css - Adicione ao final */
+#input-nome-container {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid var(--accent);
+}
+
+#nick-jogador {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  color: white;
+  font-family: inherit;
+  text-align: center;
+  outline: none;
+}
+
+#nick-jogador:focus {
+  box-shadow: 0 0 15px var(--accent);
+}
+
+#btn-salvar-ranking {
+  width: 100%;
+  padding: 10px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+#btn-salvar-ranking:hover {
+  filter: brightness(1.2);
+  transform: scale(1.02);
 }

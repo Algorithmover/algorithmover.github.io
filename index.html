@@ -134,7 +134,19 @@
   <h2>🧠 Quiz Gamer</h2>
   <p>Teste seus conhecimentos sobre jogos 🎮</p>
 
+<div id="ranking-global" style="display:none;" class="ranking-card reveal">
+    <h3>🏆 Hall da Fama (Top 5)</h3>
+    <div id="lista-ranking"></div>
+  </div>
+
   <div id="quiz-container">
+    <div id="input-nome-container" style="display:none;">
+      <p>Digite seu nick para o ranking:</p>
+      <input type="text" id="nick-jogador" placeholder="Seu Nickname..." maxlength="15">
+      <button id="btn-salvar-ranking">Salvar Pontuação 🚀</button>
+    </div>
+    
+  <div id="quiz-container"> 
     <h3 id="pergunta"></h3>
 
     <div class="opcoes">

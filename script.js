@@ -159,27 +159,63 @@ btnProxima.onclick = () => {
   }
 };
 
+// script.js
+
 function finalizarQuiz() {
   const total = perguntas.length;
-  const porcentagem = Math.round((pontos / total) * 100);
-
   perguntaEl.textContent = "🏆 Quiz finalizado!";
   document.querySelector(".opcoes").style.display = "none";
+  resultadoEl.textContent = `Você acertou ${pontos} de ${total}!`;
 
-  resultadoEl.textContent = `Você acertou ${pontos} de ${total} perguntas (${porcentagem}%).`;
+  // Em vez de prompt, mostra a nossa div de input
+  const inputContainer = document.getElementById("input-nome-container");
+  inputContainer.style.display = "block";
 
-  const melhorPontuacao = localStorage.getItem("melhorPontuacao");
-  if (!melhorPontuacao || pontos > melhorPontuacao) {
-    localStorage.setItem("melhorPontuacao", pontos);
-    recordeEl.textContent = "🏆 Novo recorde!";
-  } else {
-    recordeEl.textContent = `🏅 Seu melhor resultado: ${melhorPontuacao} acertos.`;
-  }
+  const btnSalvar = document.getElementById("btn-salvar-ranking");
+  const inputNick = document.getElementById("nick-jogador");
+
+  btnSalvar.onclick = () => {
+    const nomeJogador = inputNick.value.trim();
+    
+    if (nomeJogador) {
+      fetch('http://127.0.0.1:5000/salvar_pontuacao', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome: nomeJogador, pontos: pontos })
+      })
+      .then(res => res.json())
+      .then(dados => {
+        preencherRanking(dados.ranking);
+        inputContainer.style.display = "none"; // Esconde o input após salvar
+      })
+      .catch(erro => console.error("Erro no servidor:", erro));
+    } else {
+      alert("Digite um nome válido!");
+    }
+  };
 
   btnProxima.textContent = "Jogar Novamente 🔄";
   btnProxima.style.display = "inline-block";
-  btnProxima.onclick = () => location.reload(); // Recarrega para resetar tudo
+  btnProxima.onclick = () => location.reload();
 }
 
 embaralhar(perguntas);
 carregarPergunta();
+
+function preencherRanking(lista) {
+    const listaEl = document.getElementById("lista-ranking");
+    const container = document.getElementById("ranking-global");
+    
+    listaEl.innerHTML = ""; 
+    container.style.display = "block";
+
+    lista.forEach((jogador, index) => {
+        const item = document.createElement("div");
+        item.className = "rank-item";
+        item.innerHTML = `
+            <span><strong>${index + 1}º</strong> ${jogador.nome}</span>
+            <span><strong>${jogador.pontos} pts</strong></span>
+        `;
+        listaEl.appendChild(item);
+    });
+}
