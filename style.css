@@ -1,37 +1,34 @@
-/* RESET */
+/* =====================
+   RESET
+===================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* =====================
-   VARIÁVEIS DE TEMA
-===================== */
 :root {
-  --bg: #ffffff;
-  --card: #000000;
-  --text: #e5e7eb;
-  --accent: #ffffff;
+  --bg: #0f172a; 
+  --card: #1e293b; 
+  --text: #f1f5f9;
+  --accent: #8b5cf6;
 }
-
 :root.light {
   --bg: #f8fafc;
   --card: #ffffff;
-  --text: #000000;
-  --accent: #000000;
+  --text: #1e293b;
+  --accent: #6366f1;
 }
 
-/* BODY */
 body {
-  font-family: system-ui, sans-serif;
-  background: radial-gradient(circle at top, var(--bg), #000);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: radial-gradient(circle at top, var(--bg), #717171);
   color: var(--text);
   min-height: 100vh;
   transition: background 0.5s, color 0.5s;
+  line-height: 1.6;
 }
 
-/* LOADING */
 #loader {
   position: fixed;
   inset: 0;
@@ -40,11 +37,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
   z-index: 9999;
+  font-size: 22px;
+  transition: opacity 0.5s;
 }
 
-/* PROGRESS BAR */
 #progress {
   position: fixed;
   top: 0;
@@ -55,7 +52,6 @@ body {
   z-index: 999;
 }
 
-/* BOTÃO DE TEMA */
 #themeToggle {
   position: fixed;
   bottom: 20px;
@@ -70,7 +66,6 @@ body {
   z-index: 999;
 }
 
-/* HEADER */
 header {
   position: sticky;
   top: 0;
@@ -79,7 +74,7 @@ header {
 }
 
 .glass {
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
 }
 
@@ -87,6 +82,7 @@ nav {
   display: flex;
   justify-content: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 nav a {
@@ -95,7 +91,9 @@ nav a {
   font-weight: bold;
 }
 
-/* MAIN */
+/* =====================
+   MAIN / CARDS
+===================== */
 main {
   max-width: 1100px;
   margin: 60px auto;
@@ -115,14 +113,19 @@ h2 {
   margin-bottom: 10px;
 }
 
-/* GRID */
+p {
+  margin-bottom: 12px;
+}
+
+/* =====================
+   GRID / CONSOLES
+===================== */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
 
-/* CONSOLE CARDS */
 .console-card {
   background: var(--card);
   padding: 30px;
@@ -138,7 +141,9 @@ h2 {
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-/* SVG ICONS */
+/* =====================
+   SVG ICONS
+===================== */
 .icon {
   width: 48px;
   height: 48px;
@@ -167,7 +172,9 @@ h2 {
   to { stroke-dashoffset: 0; }
 }
 
-/* TIPOS */
+/* =====================
+   TIPOS DE JOGOS
+===================== */
 .tipos-lista {
   list-style: none;
   display: grid;
@@ -182,7 +189,32 @@ h2 {
   text-align: center;
 }
 
-/* REVEAL */
+/* =====================
+   GALERIA
+===================== */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.galeria img {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.galeria img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+/* =====================
+   REVEAL ANIMATION
+===================== */
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -194,16 +226,109 @@ h2 {
   transform: none;
 }
 
-/* FOOTER */
+/* =====================
+   QUIZ
+===================== */
+/* =====================
+   QUIZ (AJUSTE DE LARGURA)
+===================== */
+#quiz {
+  text-align: center; /* Centraliza o título e o texto de introdução */
+}
+
+#quiz-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza a pergunta e a div de opções */
+}
+
+.opcoes {
+  display: grid;
+  gap: 12px;
+  margin-top: 15px;
+  width: 100%;        /* Ocupa a largura disponível... */
+  max-width: 500px;   /* ...mas para de crescer ao chegar em 500px */
+}
+
+.opcao {
+  background: var(--card);
+  color: var(--text);
+  border: 2px solid var(--accent); /* Borda roxa para dar destaque */
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;        /* Faz todos os botões terem o mesmo tamanho */
+  font-size: 16px;
+}
+.opcao:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.opcao.correta {
+  background: #16a34a;
+  color: #fff;
+}
+
+.opcao.errada {
+  background: #dc2626;
+  color: #fff;
+}
+
+#resultado {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+#recorde {
+  margin-top: 8px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+#proxima {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* =====================
+   FOOTER
+===================== */
 footer {
   background: var(--card);
   text-align: center;
   padding: 20px;
 }
 
-/* MOBILE */
+a:focus,
+button:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
 @media (max-width: 600px) {
   nav {
     flex-direction: column;
   }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.opcao.errada {
+  animation: shake 0.4s ease-in-out;
+  background: #dc2626;
+  color: #fff;
 }

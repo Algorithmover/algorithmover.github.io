@@ -5,85 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>🎮 Origem & Evolução dos Jogos</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="Sem o fundo.png" type="image/png">
 </head>
 <body>
 
-<!-- LOADING -->
-<div id="loader">🎮 Carregando o mundo dos games...</div>
+<audio id="som-acerto" src="https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3"></audio>
+<audio id="som-erro" src="https://assets.mixkit.co/sfx/preview/mixkit-wrong-answer-fail-notification-946.mp3"></audio>
 
-<!-- PROGRESS BAR -->
+<div id="loader">🎮 Carregando o mundo dos Games...</div>
+
 <div id="progress"></div>
 
-<!-- BOTÃO DE TEMA -->
-<button id="themeToggle">🌙</button>
+<button id="themeToggle" aria-label="Alternar tema claro e escuro">🌙</button>
 
-<header class="glass" role="banner">
+<header class="glass">
   <h1>🎮 Origem & Evolução dos Jogos</h1>
   <nav>
     <a href="#origem">Origem</a>
     <a href="#evolucao">Evolução</a>
     <a href="#consoles">Consoles</a>
     <a href="#tipos">Tipos</a>
+    <a href="#quiz">Quiz</a>
   </nav>
 </header>
 
 <main>
 
-  <!-- ORIGEM -->
   <section id="origem" class="card reveal">
     <h2>📜 Origem dos Jogos</h2>
-
     <p>
       Os jogos fazem parte da história da humanidade desde os tempos mais antigos.
-      Antes mesmo da tecnologia existir, as pessoas já criavam brincadeiras, desafios
-      e competições como forma de entretenimento, aprendizado e convivência social.
+      Antes mesmo da tecnologia existir, as pessoas já criavam brincadeiras,
+      desafios e competições como forma de entretenimento.
     </p>
-
     <p>
-      Jogos de tabuleiro, cartas, atividades físicas e desafios mentais sempre estiveram
-      presentes em diferentes culturas ao redor do mundo, ajudando a desenvolver
-      habilidades como estratégia, lógica e cooperação.
+      Jogos ajudaram no desenvolvimento de habilidades como lógica,
+      estratégia, criatividade e convivência social.
     </p>
-
     <p>
-      Com o avanço da matemática, da ciência e posteriormente da eletrônica,
-      surgiram os primeiros experimentos com jogos mecânicos e computacionais,
-      dando início ao que hoje conhecemos como jogos eletrônicos.
+      Com o avanço da ciência e da eletrônica, surgiram os primeiros
+      jogos computacionais, dando origem aos jogos eletrônicos modernos.
     </p>
   </section>
 
-  <!-- EVOLUÇÃO -->
   <section id="evolucao" class="card reveal">
     <h2>🚀 Evolução dos Jogos</h2>
-
     <p>
-      A evolução dos jogos eletrônicos está diretamente ligada ao desenvolvimento
-      da tecnologia. No início, os jogos eram simples, com gráficos básicos e regras
-      limitadas, mas já despertavam grande interesse do público.
+      Os primeiros jogos eletrônicos eram simples, com gráficos básicos
+      e regras limitadas, mas revolucionaram o entretenimento.
     </p>
-
     <p>
-      Com o surgimento dos arcades, consoles domésticos e computadores pessoais,
-      os jogos passaram a oferecer experiências mais completas, incluindo histórias,
-      personagens marcantes e desafios cada vez mais elaborados.
+      Arcades, consoles e PCs trouxeram narrativas, personagens icônicos
+      e experiências cada vez mais imersivas.
     </p>
-
     <p>
-      Atualmente, os jogos contam com gráficos realistas, inteligência artificial,
-      modos online e comunidades globais, tornando-se uma das maiores indústrias
-      de entretenimento do mundo.
+      Hoje os jogos contam com gráficos realistas, multiplayer online,
+      inteligência artificial e comunidades globais.
     </p>
   </section>
 
-  <!-- CONSOLES -->
   <section id="consoles" class="card reveal">
     <h2>🎮 Tipos de Consoles</h2>
-
-    <p>
-      Os consoles surgiram como uma forma prática de levar os jogos eletrônicos
-      para dentro de casa. Cada tipo de console oferece uma experiência diferente,
-      atendendo a diversos perfis de jogadores.
-    </p>
 
     <div class="grid">
 
@@ -92,10 +74,7 @@
           <path d="M4 8h16v8H4z"/>
         </svg>
         <p><strong>Mesa</strong></p>
-        <p>
-          Consoles de mesa são ligados à televisão e oferecem alto desempenho,
-          gráficos avançados e experiências imersivas.
-        </p>
+        <p>Consoles ligados à TV com alto desempenho e gráficos avançados.</p>
       </div>
 
       <div class="console-card">
@@ -103,10 +82,7 @@
           <path d="M7 4h10v16H7z"/>
         </svg>
         <p><strong>Portáteis</strong></p>
-        <p>
-          Consoles portáteis permitem jogar em qualquer lugar, sendo ideais
-          para quem busca praticidade e mobilidade.
-        </p>
+        <p>Permitem jogar em qualquer lugar, com foco em mobilidade.</p>
       </div>
 
       <div class="console-card">
@@ -114,54 +90,68 @@
           <path d="M3 12h18M12 3v18"/>
         </svg>
         <p><strong>Híbridos</strong></p>
-        <p>
-          Consoles híbridos combinam características dos consoles de mesa
-          e portáteis, oferecendo versatilidade ao jogador.
-        </p>
+        <p>Funcionam tanto como portátil quanto conectados à TV.</p>
       </div>
 
     </div>
   </section>
 
-  <!-- TIPOS DE JOGOS -->
   <section id="tipos" class="card reveal">
     <h2>🎯 Tipos de Jogos</h2>
-
-    <p>
-      Existem diversos gêneros de jogos, cada um com características próprias
-      e estilos de jogabilidade diferentes. Alguns dos principais são:
-    </p>
-
     <ul class="tipos-lista">
-      <li><strong>FPS</strong> – Jogos de tiro em primeira pessoa, focados em ação e reflexos rápidos.</li>
-      <li><strong>RPG</strong> – Jogos de interpretação de personagens, com histórias profundas e evolução.</li>
-      <li><strong>MOBA</strong> – Jogos estratégicos em equipe, muito populares no cenário competitivo.</li>
-      <li><strong>Battle Royale</strong> – Jogos de sobrevivência onde vence o último jogador ou equipe.</li>
-      <li><strong>Estratégia</strong> – Jogos que exigem planejamento, raciocínio e tomada de decisões.</li>
+      <li><strong>FPS</strong> – Ação e reflexos rápidos</li>
+      <li><strong>RPG</strong> – Histórias profundas e evolução</li>
+      <li><strong>MOBA</strong> – Estratégia em equipe</li>
+      <li><strong>Battle Royale</strong> – Sobrevivência</li>
+      <li><strong>Estratégia</strong> – Planejamento e decisões</li>
     </ul>
   </section>
 
-  <!-- IMPORTÂNCIA -->
   <section class="card reveal">
     <h2>🎓 Importância dos Jogos</h2>
-
     <p>
-      Os jogos vão além do entretenimento. Eles contribuem para o desenvolvimento
-      de habilidades como raciocínio lógico, coordenação motora, criatividade
-      e trabalho em equipe.
+      Jogos ajudam no raciocínio lógico, coordenação motora,
+      criatividade e trabalho em equipe.
     </p>
-
     <p>
-      Além disso, muitos jogos são utilizados na educação, em treinamentos
-      profissionais e até na área da saúde, demonstrando seu impacto positivo
-      na sociedade moderna.
+      Também são usados na educação, treinamentos e até na área da saúde.
     </p>
+  </section>
+
+  <section class="card reveal">
+    <h2>🖼️ Galeria de Jogos</h2>
+    <div class="galeria"> 
+      <img src="download.jfif" alt="Jogo clássico">
+      <img src="download (1).jfif" alt="Jogo moderno">
+      <img src="download (2).jfif" alt="Jogo multiplayer">
+      <img src="download (3).jfif" alt="Jogo portátil">
+    </div>
   </section>
 
 </main>
 
+<section class="card reveal" id="quiz">
+  <h2>🧠 Quiz Gamer</h2>
+  <p>Teste seus conhecimentos sobre jogos 🎮</p>
+
+  <div id="quiz-container">
+    <h3 id="pergunta"></h3>
+
+    <div class="opcoes">
+      <button class="opcao"></button>
+      <button class="opcao"></button>
+      <button class="opcao"></button>
+      <button class="opcao"></button>
+    </div>
+
+    <p id="resultado"></p>
+    <p id="recorde"></p>
+    <button id="proxima" style="display:none;">Próxima pergunta</button>
+  </div>
+</section>
+
 <footer>
-  # Desenvolvido por Fábio S. M. Fernandes | Site GAMER 🎮
+  Desenvolvido por Fábio S. M. Fernandes | Site Gamer 🎮
 </footer>
 
 <script src="script.js"></script>
